@@ -1,0 +1,17 @@
+[
+    {
+      "icon": "MdPlace",
+      "title": "Find us",
+      "details": "Rajkot, Gujarat"
+    },
+    {
+      "icon": "IoCallSharp",
+      "title": "Call us",
+      "details": "7859865775"
+    },
+    {
+      "icon": "TbMailPlus",
+      "title": "Mail us",
+      "details": "vickters229@gmail.com"
+    }
+  ]
