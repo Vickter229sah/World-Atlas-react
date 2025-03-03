@@ -2,24 +2,30 @@ import { NavLink, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { DotLoader } from "react-spinners";
 import axios from "axios";
+import MapComponent from "./MapComponent";
+import WeatherComponent from "./WeatherComponent";
+import HotelList from "../../Pages/HotelList"; // Import the HotelList component
 
 const CountryDetails = () => {
   const { name } = useParams();
   const [country, setCountry] = useState(null);
   const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(true); // Keep track of loading state
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!name) return; 
+    if (!name) return;
 
-    setLoading(true); // Set loading to true when the request is initiated
+    setLoading(true);
 
+    // Fetch country details using restcountries API
     axios
-      .get(`https://restcountries.com/v3.1/name/${encodeURIComponent(name)}?fullText=true`)
+      .get(
+        `https://restcountries.com/v3.1/name/${encodeURIComponent(name)}?fullText=true`
+      )
       .then((response) => {
         if (response.data.length > 0) {
           setCountry(response.data[0]);
-          setError(null); // Reset any previous errors
+          setError(null);
         } else {
           setError("Country not found");
         }
@@ -29,7 +35,7 @@ const CountryDetails = () => {
         setError("Error fetching country details");
       })
       .finally(() => {
-        setLoading(false); // Set loading to false once the request is finished
+        setLoading(false);
       });
   }, [name]);
 
@@ -45,6 +51,9 @@ const CountryDetails = () => {
     return <p>⚠️ {error}</p>;
   }
 
+  // Get the capital city name
+  const capitalCity = country.capital?.[0] || "";
+
   return (
     <section className="card country-details-card container">
       <div className="container-card bg-white-box">
@@ -59,10 +68,8 @@ const CountryDetails = () => {
               <p className="card-title">{country.name.common}</p>
               <div className="infoContainer">
                 <p>
-                  <span className="card-description">Native Names:</span>
-                  {Object.keys(country.name.nativeName)
-                    .map((key) => country.name.nativeName[key].common)
-                    .join(", ")}
+                  <span className="card-description">Capital:</span>
+                  {capitalCity || "N/A"}
                 </p>
                 <p>
                   <span className="card-description">Population:</span>
@@ -73,46 +80,41 @@ const CountryDetails = () => {
                   {country.region}
                 </p>
                 <p>
-                  <span className="card-description">Sub Region:</span>
-                  {country.subregion}
-                </p>
-                <p>
-                  <span className="card-description">Capital:</span>
-                  {country.capital?.[0] || "N/A"}
-                </p>
-                <p>
-                  <span className="card-description">Top Level Domain:</span>
-                  {country.tld?.[0] || "N/A"}
-                </p>
-                <p>
-                  <span className="card-description">Currencies:</span>
-                  {Object.keys(country.currencies)
-                    .map((curElem) => country.currencies[curElem].name)
-                    .join(", ")}
-                </p>
-                <p>
                   <span className="card-description">Languages:</span>
-                  {Object.keys(country.languages)
-                    .map((key) => country.languages[key])
-                    .join(", ")}
+                  {Object.values(country.languages).join(", ")}
                 </p>
                 <p>
                   <span className="card-description">Area:</span>
-                  {country.area.toLocaleString()} square kilometers
+                  {country.area.toLocaleString()} km²
                 </p>
               </div>
             </div>
           </div>
         )}
+      </div>
+
+      <div className="country-map">
+        <h3>Weather</h3>
+        <div className="country-container">
+          <div className="weather-container">
+            <h1>{country.name.common}</h1>
+            <WeatherComponent capital={capitalCity} />
+          </div>
+        </div>
+        <h3>Location on the Map</h3>
+        <MapComponent country={country} />
+      </div>
+
+      {/* ✅ Fetch hotels by capital city instead of country name */}
+      {capitalCity && <HotelList cityName={capitalCity} />}
+
       <div className="country-card-backBtn">
         <NavLink to="/country" className="backBtn">
           <button>Go Back</button>
         </NavLink>
-      </div>
       </div>
     </section>
   );
 };
 
 export default CountryDetails;
-

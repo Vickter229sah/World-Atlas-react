@@ -1,0 +1,73 @@
+.signup-container {
+    max-width: 400px;
+    margin: 20px auto;
+    padding: 20px;
+    background: rgba(29, 28, 28, 0.8);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(2, 216, 236, 0.2);
+    text-align: center;
+    
+  }
+  
+  h2 {
+    font-size: 24px;
+    color: #03e4f0;
+    margin-bottom: 20px;
+  }
+  
+  input {
+    width: 100%;
+    background-color: #151515;
+    color: #fff;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #21c3f9;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  input:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+  
+  .button1 {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .button1:hover {
+    background-color: #0056b3;
+  }
+  
+  hr {
+    margin: 20px;
+    border: 0.5px solid #ddd;
+  }
+  
+  .google-btn {
+    background-color: #db4437;
+    color: white;
+  }
+  
+  .google-btn:hover {
+    background-color: #b92d20;
+  }
+  
+  #showPassword {
+    margin-right: 10px;
+  }
+  
+  label {
+    font-size: 14px;
+    color: #cbc6c6;
+  }
+  
