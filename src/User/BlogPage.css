@@ -1,0 +1,157 @@
+/* Overall page styling */
+.blog-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #090909;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  .page-title {
+    font-size: 36px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 50px;
+    color: #04cceb;
+  }
+  
+  /* Blog posts container */
+  .blog-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  
+  .blog-post {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: rgb(10, 10, 10);
+    border-radius: 8px;
+    border: 1px solid #04cceb ;
+    box-shadow: none; /* Removed card-like box-shadow */
+    overflow: hidden;
+    transition: transform 0.3s ease;
+  }
+  
+  .blog-post:hover {
+    transform: translateY(0); /* No hover effect */
+  }
+  
+  /* Text content */
+  .text-content {
+    max-width: 50%;
+    padding-right: 20px;
+  }
+  
+  .text-content h3 {
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #69d5e8;
+  }
+  
+   .text-content p { 
+    font-size: 16px;
+    line-height: 1.6;
+    color: #7f8c8d;
+  } 
+  
+  /* Author's profile image */
+  .profile-image {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 20px;
+    object-fit: cover;
+  }
+  
+  /* Image styling */
+  .blog-post img {
+    width: 45%;
+    border-radius: 8px;
+    object-fit: cover;
+    max-height: 300px;
+  }
+  
+  /* Alternating text and image layout */
+  .text-left {
+    flex-direction: row;
+  }
+  
+  .text-right {
+    gap: 2rem;
+    flex-direction: row-reverse;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .blog-post {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .text-content {
+      max-width: 100%;
+      padding-right: 0;
+    }
+  
+    .blog-post img {
+      width: 80%;
+      margin-top: 20px;
+    }
+  }
+  
+  /* three dot option  */
+
+/* ThreeDotsVertical menu styles */
+.post-options {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.options-icon {
+  cursor: pointer;
+  font-size: 2.7rem;
+  color: #19d3f3;
+  padding: 5px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  width: 14rem;
+  color: #f0f0f0;
+  right: 0;
+  top: 25px;
+  background: #065765;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+.dropdown-menu button {
+  display: block;
+  padding: 8px 12px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+}
+
+.dropdown-menu button:hover {
+  background-color: #f0f0f0;
+}
+
+.blog-post {
+  position: relative; /* Needed for top-right positioning */
+  padding: 20px;
+  border: 1px solid #19d3f3;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  background-color: rgb(14, 14, 14);
+}

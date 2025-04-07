@@ -9,7 +9,7 @@ const Chatbot = () => {
   const [loading, setLoading] = useState(false);
 
   // API Keys
-  const huggingFaceApiKey = "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"; // Hugging Face API Key
+  const huggingFaceApiKey = "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"; // Hugging Face API Key 
   const modelID = "facebook/blenderbot-400M-distill"; // Model ID for Hugging Face
   const unsplashApiKey = "rX5YMZeK1z30Mk_zpz9_7ZwGYyQ26DOv20XKsySvkbs"; // Unsplash Access Key
 

@@ -6,7 +6,8 @@ const Dashboard = () => {
       <aside className="sidebar">
         <h2>🌍 WorldAtlas</h2>
         <ul>
-          <li><a href="#">🏠 Home</a></li>
+          <li><a href="/">🏠 Home</a></li>
+          <li><a href="/add-blog">📝 Add Blog</a></li>
           <li><a href="#">📌 Saved Trips</a></li>
           <li><a href="#">🔍 Search Destinations</a></li>
           <li><a href="#">💼 My Bookings</a></li>

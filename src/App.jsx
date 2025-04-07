@@ -13,6 +13,9 @@ import ChatbotButton from "./components/Layout/ChatbotButton";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import Dashboard from "./User/UserDashboard";
+import AddBlog from "./User/AddBlog";
+import BlogList from "./User/BlogPage";
+import Admin from "./Pages/Admin";
 
 const router = createBrowserRouter([
   {
@@ -51,6 +54,18 @@ const router = createBrowserRouter([
       {
         path: "/dashboard",
         element:<Dashboard />,
+      },
+      {
+        path:"/blogs",
+        element:<BlogList />,
+      },
+      {
+        path: "/add-blog",
+        element: <AddBlog />,
+      },
+      {
+        path: "/admin",
+        element: <Admin />,
       },
     ],
   },

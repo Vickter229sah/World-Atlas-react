@@ -2,9 +2,10 @@ import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import { signOut } from "firebase/auth";
 import { auth } from "../Layout/firebaseConfig";
+import { FiSettings, FiLogOut } from "react-icons/fi"; // Import icons
 
 export const Headers = () => {
-  const [menuOpen, setMenuOpen] = useState(false); // State to control mobile menu visibility
+  const [menuOpen, setMenuOpen] = useState(false);
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -51,7 +52,7 @@ export const Headers = () => {
         <div className="grid navbar-grid">
           <div className="Logo">
             <NavLink to="/">
-              <h1>WorldAtlas</h1>
+              <h1>🌍WorldAtlas</h1>
             </NavLink>
           </div>
           <nav>
@@ -66,6 +67,9 @@ export const Headers = () => {
                 <NavLink to="/">Home</NavLink>
               </li>
               <li>
+                <NavLink to="/blogs">Blog</NavLink>
+              </li>
+              <li>
                 <NavLink to="/about">About</NavLink>
               </li>
               <li>
@@ -77,7 +81,7 @@ export const Headers = () => {
 
               {user ? (
                 <>
-                  <li className="user-info">
+                   <li className="user-info">
                     <img
                       src={user.photoURL}
                       alt="User"
@@ -85,14 +89,16 @@ export const Headers = () => {
                     />
                   </li>
                   <span>{user.displayName}</span>
+                  
                   <li>
-                    <NavLink
-                      to="/"
-                      onClick={handleLogout}
-                      className="logout-link"
-                    >
-                      Logout
+                    <NavLink to="/dashboard" className="settings-icon">
+                      <FiSettings size={22} />
                     </NavLink>
+                  </li>
+                  <li>
+                    <button onClick={handleLogout} className="logout-button">
+                      <FiLogOut size={22} />
+                    </button>
                   </li>
                 </>
               ) : (
